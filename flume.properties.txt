@@ -1,0 +1,23 @@
+agent.sources = spool-source
+agent.sinks = hdfs-sink
+agent.channels = ch
+
+#Binding
+agent.sources.spool-source.channels = ch
+agent.sinks.hdfs-sink.channel = ch
+
+
+#Sources
+agent.sources.spool-source.type = spooldir
+agent.sources.spool-source.spoolDir = /home/user/spoolDirectory
+
+#Sinks
+agent.sinks.hdfs-sink.type = hdfs
+agent.sinks.hdfs-sink.hdfs.path = /datalake
+agent.sinks.hdfs-sink.filePreffix = events
+agent.sinks.hdfs-sink.fileSuffix = .log
+agent.sinks.hdfs-sink.inUsePrefix = _
+agent.sinks.hdfs-sink.fileType = DataStream
+
+#Channels
+agent.channels.ch.type = file
